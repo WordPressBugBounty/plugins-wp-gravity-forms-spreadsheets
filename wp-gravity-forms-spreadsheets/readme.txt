@@ -2,9 +2,9 @@
 Contributors: crmperks, sbazzi, asif876
 Tags: gravity forms, gravity forms Google Sheets, gravity forms to google docs, gravity forms google drive, gravity forms to google sheet
 Requires at least: 3.8
-Tested up to: 6.6
-Stable tag: 1.2.2
-Version: 1.2.2
+Tested up to: 6.7
+Stable tag: 1.2.3
+Version: 1.2.3
 Requires PHP: 5.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -93,6 +93,9 @@ Our team provides free support at <a href="https://www.crmperks.com/contact-us/"
 
 == Changelog ==
 
+
+= 1.2.3 =
+* fixed "select2 xss" issue.
 
 = 1.2.2 =
 * added "update entry via API" feature.
