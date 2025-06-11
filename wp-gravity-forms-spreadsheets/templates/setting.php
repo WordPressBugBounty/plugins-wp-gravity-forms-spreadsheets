@@ -31,14 +31,14 @@ $self_dir=admin_url().'?'.$this->id.'_tab_action=get_code';
   </div></div>
   
     <ol>
-  <li><?php echo sprintf(__('Go to %sGoogle Developer Console %s , Create new Project or Select old project','gravity-forms-googlesheets-crm'),'<a href="https://console.developers.google.com/" target="_blank">','</a>'); ?></li>
-  <li><?php esc_html_e('Go to "Library" and Select "Google Sheets API" then click "Enable" button, Similarly enable "Google drive" API','gravity-forms-googlesheets-crm'); ?></li>
-  <li><?php echo esc_html__('Go to "Oauth Consent Screen" and enter name of Application (e.g CRM Perks)','gravity-forms-googlesheets-crm'); ?>
-  <li><?php echo sprintf(__('Enter %s in "Authorized domains" field then click "Save" button','gravity-forms-googlesheets-crm'),'<code>'.$domain.'</code>'); ?>
-  <li><?php echo esc_html__('Go to "Credentials" and click "New Credentials" then Select "Oauth Client ID"','gravity-forms-googlesheets-crm'); ?>
-  <li><?php echo sprintf(__('Select Application Type as "Web application", Enter name(e.g CRM Perks APP) , Enter %s or %s in "Authorized redirect URIs" field then click "Create" button','gravity-forms-googlesheets-crm'),'<code>https://www.crmperks.com/google_auth/</code>','<code>'.$self_dir.'</code>'); ?>
+  <li><?php echo sprintf(__('Go to %sGoogle Developer Console %s , Create new Project or Select old project, %sView Screenshots %s','gravity-forms-googlesheets-crm'),'<a href="https://console.developers.google.com/" target="_blank">','</a>','<a href="https://www.crmperks.com/connect-wordpress-to-google/" target="_blank">','</a>'); ?></li>
+  <li><?php echo esc_html__('click "get started" button and enter name of Application (e.g CRM Perks), support email and select "External" in Audience section.','gravity-forms-googlesheets-crm'); ?>
+  <li><?php echo sprintf(__('Go to "Clients" tab and create new Client, Select Application Type as "Web application", Enter name(e.g CRM Perks APP) , Enter %s or %s in "Authorized redirect URIs" field then click "Create" button','gravity-forms-googlesheets-crm'),'<code>https://www.crmperks.com/google_auth/</code>','<code>'.$self_dir.'</code>'); ?>
   </li>
 <li><?php echo esc_html__('Copy "Client ID" and "Client Secret" then save changes','gravity-forms-googlesheets-crm'); ?></li>
+ <li><?php esc_html_e('Go to "Library" and Select "Google Sheets API" then click "Enable" button, Similarly enable "Google drive" API','gravity-forms-googlesheets-crm'); ?></li>
+ <li><?php esc_html_e('in google console , Go to APIs and Servies > Library and Select "Google Sheets API" then click "Enable" button, Similarly enable "Google drive" API','gravity-forms-googlesheets-crm'); ?></li>
+ <li><?php esc_html_e('Go to "Audience" section, add google accounts which you want to connect.','gravity-forms-googlesheets-crm'); ?></li>
 <li><?php echo esc_html__('Click "Login with Google Sheets" button, if you see "App is not verified" error then click "show advanced" link and "Go to App" link','gravity-forms-googlesheets-crm'); ?></li>
    </ol>
   

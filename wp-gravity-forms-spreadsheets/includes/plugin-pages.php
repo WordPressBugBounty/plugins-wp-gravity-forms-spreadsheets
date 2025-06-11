@@ -963,7 +963,7 @@ $log_id=$this->post('id');
 $log=$this->data->get_log_by_id($log_id); 
   $data=json_decode($log['data'],true); 
   $response=json_decode($log['response'],true);
-    $triggers=array('manual'=>'Submitted Manually','submit'=>'Form Submission','update'=>'Entry Update'
+  $triggers=array('manual'=>'Submitted Manually','submit'=>'Form Submission','after_submit'=>'After Form Submission','paid'=>'Payment Completed','update'=>'Entry Update'
   ,'delete'=>'Entry Deletion','add_note'=>'Entry Note Created','delete_note'=>'Entry Note Deleted','restore'=>'Entry Restored');
   $event= empty($log['event']) ? 'manual' : $log['event'];
   $extra=array('Object'=>$log['object']);
@@ -1205,7 +1205,7 @@ $sel2_css=$base_url. 'css/select2.min.css';
   if(!current_user_can($this->id.'_edit_feeds')){
   esc_html_e('You do not have permissions to edit/save feed','gravity-forms-googlesheets-crm'); 
   return;
-  }
+  } 
   //
   $time = current_time( 'mysql' ,1);
   $feed_update=array("data"=>$this->post("meta"),"name"=>$this->post('name'),"account"=>$this->post('account'),"object"=>$this->post('object'),"form_id"=>$this->post('form_id'),"time"=>$time);
@@ -1364,7 +1364,7 @@ include_once(self::$path . "templates/feed-account.php");
   //Adding default fields
 $form_fields = rgar( $form, 'fields' ); 
 
-  $skip_inputs=array('checkbox','select','time','date','radio','poll'); 
+  $skip_inputs=array('checkbox','select','time','date','radio','poll','multi_choice'); //multi_choice
   if(is_array($form_fields)){
   foreach($form_fields as $field){  
       //if(!isset($field->type)){ $field->type=''; }

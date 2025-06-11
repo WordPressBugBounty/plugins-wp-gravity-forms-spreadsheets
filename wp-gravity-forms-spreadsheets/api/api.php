@@ -233,7 +233,6 @@ if(!in_array($tab,$sheets)){
 $tab=$sheets[0];    
 }
 $res=$this->post_google_arr($this->url.'v4/spreadsheets/'.$object.'/values/'.urlencode("'".$tab."'!1:1")); 
-
 if(!empty($res['values'][0])){
    foreach($res['values'][0] as $k=>$v){
        if(empty($v)){ $v='Col #'.($k+1); }
@@ -347,6 +346,7 @@ if($id == ''){
        //insertDataOption=INSERT_ROWS
        $post=array('values'=>array($fields),"majorDimension"=>"ROWS");
        $google_res=$this->post_google_arr($path,"post",json_encode($post));
+      // var_dump($google_res); die();
 }else if(!empty($id) && is_numeric($id)){
  
   // $id_arr=explode(':',$id);
