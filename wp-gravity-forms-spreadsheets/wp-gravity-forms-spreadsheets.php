@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Connector for Gravity Forms and Google Sheets
 * Description: Integrates Gravity Forms with Google Sheets allowing form submissions to be automatically sent to your Google Sheets. 
-* Version: 1.2.4
+* Version: 1.2.5
 * Requires at least: 3.8
 * Author URI: https://www.crmperks.com
 * Plugin URI: https://www.crmperks.com/plugins/gravity-forms-plugins/gravity-forms-google-sheets-plugin/
@@ -24,7 +24,7 @@ class vxg_googlesheets {
   public  $crm_name = 'googlesheets';
   public  $id = 'vxg_googlesheets';
   public  $domain = 'vxg-gsheets';
-  public  $version = "1.2.4";
+  public  $version = "1.2.5";
   public  $update_id = '30021';
   public  $min_gravityforms_version = '1.3.9';
   public $type = 'vxg_googlesheets_pro';
@@ -480,8 +480,8 @@ return $result;
       return $value;
   }*/
 
-  if(isset($entry[$gf_field_id])){   
-  $value=maybe_unserialize($entry[$gf_field_id]);
+  if(isset($entry[$gf_field_id])){ 
+  $value=$entry[$gf_field_id];  
   if(in_array($gf_field_id,array('date_created','payment_date'))){
       $date_format=trim(get_option( 'date_format' ).' '.get_option( 'time_format' ));
       if(empty($date_format)){
@@ -492,6 +492,11 @@ return $result;
   }
   if(is_numeric($gf_field_id)){
   $field = RGFormsModel::get_field($form, $gf_field_id);
+  //$value=GFCommon::get_lead_field_display( $field, $value,'',false,'text' );
+  //$value=$field->get_value_entry_detail($value,'',false,'text');
+  if(isset($field->type) && in_array($field->type,array('list')) ){
+     $value=maybe_unserialize($value); 
+  }
   if(isset($field->type) && in_array($field->type,array('option','product')) ){
         $found=strpos($value,'|');
       if($found){
@@ -515,6 +520,7 @@ return $result;
     foreach($field->choices  as $v){
         if($v['value'] == $value){
    $value=!empty($v['score']) ? $v['score'] :  $v['text'];
+   $value=!empty($v['gquizWeight']) ? $v['gquizWeight'] :  $v['text'];
    break;         
         }
     }  
@@ -1632,7 +1638,7 @@ $no_filter=true;
   $no_filter=$this->check_filter($data,$entry,$form); 
   $res=array("status"=>"4","extra"=>array("filter"=>$this->filter_condition),"data"=>$temp);  
   }
-
+//var_dump($temp); die();
 //echo json_encode($temp).'---------'.json_encode($entry); die();
  
 
