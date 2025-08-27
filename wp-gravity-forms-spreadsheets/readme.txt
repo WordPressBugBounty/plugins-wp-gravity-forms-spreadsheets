@@ -96,7 +96,7 @@ Our team provides free support at <a href="https://www.crmperks.com/contact-us/"
 
 = 1.2.5 =
 * fixed "quiz field score" issue.
-* fixed "xss and php object deserialization" issues.
+* fixed "Open Redirection , PHP Object Injection Vulnerability and CSRF" issues.
 
 = 1.2.4 =
 * fixed "post_image field" issue.

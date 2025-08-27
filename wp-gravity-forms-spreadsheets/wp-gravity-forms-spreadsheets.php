@@ -480,7 +480,7 @@ return $result;
       return $value;
   }*/
 
-  if(isset($entry[$gf_field_id])){ 
+  if(isset($entry[$gf_field_id])){   
   $value=$entry[$gf_field_id];  
   if(in_array($gf_field_id,array('date_created','payment_date'))){
       $date_format=trim(get_option( 'date_format' ).' '.get_option( 'time_format' ));
@@ -492,7 +492,7 @@ return $result;
   }
   if(is_numeric($gf_field_id)){
   $field = RGFormsModel::get_field($form, $gf_field_id);
-  //$value=GFCommon::get_lead_field_display( $field, $value,'',false,'text' );
+    //$value=GFCommon::get_lead_field_display( $field, $value,'',false,'text' );
   //$value=$field->get_value_entry_detail($value,'',false,'text');
   if(isset($field->type) && in_array($field->type,array('list')) ){
      $value=maybe_unserialize($value); 
@@ -1638,7 +1638,7 @@ $no_filter=true;
   $no_filter=$this->check_filter($data,$entry,$form); 
   $res=array("status"=>"4","extra"=>array("filter"=>$this->filter_condition),"data"=>$temp);  
   }
-//var_dump($temp); die();
+
 //echo json_encode($temp).'---------'.json_encode($entry); die();
  
 

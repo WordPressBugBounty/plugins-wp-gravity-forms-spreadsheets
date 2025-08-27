@@ -911,7 +911,7 @@ if(isset($_REQUEST['error'])){
 $state.='&error='.$this->post('error');   
 }
 //esc_url($link).'&'.$this->id."_tab_action=get_token&vx_action=redirect&id=".$id."&vx_nonce=".$nonce
-wp_redirect($state);
+wp_safe_redirect($state);
 die();
 }
 
@@ -1161,6 +1161,7 @@ $this->screen_msg($uninstall_msg);
             $meta=get_option($this->type.'_settings',array());
 
       if(!empty($_POST['save'])){ 
+          check_admin_referer("vx_nonce");
              if(current_user_can($this->id."_edit_settings")){ 
 
   $meta=$this->post('meta'); if(!is_array($meta)){ $meta=array(); }
