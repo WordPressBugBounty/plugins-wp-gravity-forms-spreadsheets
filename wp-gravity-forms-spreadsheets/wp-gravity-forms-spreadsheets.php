@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Connector for Gravity Forms and Google Sheets
 * Description: Integrates Gravity Forms with Google Sheets allowing form submissions to be automatically sent to your Google Sheets. 
-* Version: 1.2.5
+* Version: 1.2.7
 * Requires at least: 3.8
 * Author URI: https://www.crmperks.com
 * Plugin URI: https://www.crmperks.com/plugins/gravity-forms-plugins/gravity-forms-google-sheets-plugin/
@@ -24,7 +24,7 @@ class vxg_googlesheets {
   public  $crm_name = 'googlesheets';
   public  $id = 'vxg_googlesheets';
   public  $domain = 'vxg-gsheets';
-  public  $version = "1.2.5";
+  public  $version = "1.2.7";
   public  $update_id = '30021';
   public  $min_gravityforms_version = '1.3.9';
   public $type = 'vxg_googlesheets_pro';
@@ -99,10 +99,7 @@ require_once(self::$path . "includes/plugin-pages.php");
   * install plugin
   * 
   */
-  public function setup_main(){
-      
-
-      
+  public function setup_main(){ 
  // include_once(self::$path. "includes/edit-form.php");
         //handling post submission.  gform_after_submission runs after gform_replace_merge_tags
   add_action('gform_entry_created', array($this, 'gf_entry_created_before'), 99, 2); 
@@ -134,17 +131,9 @@ add_action('init', array($this,'init'));
   
   self::$db_version=get_option($this->type."_version");
   if(self::$db_version != $this->version && current_user_can( 'manage_options' )){
-  $data=$this->get_data_object();
-  $data->update_table();
+$this->install_plugin();
   update_option($this->type."_version", $this->version);
-  //add post permissions
-  require_once(self::$path . "includes/install.php"); 
-  $install=new vxg_install_googlesheets();
-  $install->create_roles();   
-    $log_str="Installing ".self::$title."  version=".$this->version;
-  $this->log_msg($log_str);
   }
-
   } 
   }
   
@@ -163,6 +152,14 @@ if($start_instance){
 self::$plugin->instance();
 }
 } }
+  public function install_plugin(){
+  $data=$this->get_data_object();
+  $data->update_table();
+  //add post permissions
+  require_once(self::$path . "includes/install.php"); 
+  $install=new vxg_install_googlesheets();
+  $install->create_roles();  
+  }
   public function install_gf_notice(){
         $message=self::$gf_status_msg;
   if(!empty($message)){
@@ -495,7 +492,7 @@ return $result;
     //$value=GFCommon::get_lead_field_display( $field, $value,'',false,'text' );
   //$value=$field->get_value_entry_detail($value,'',false,'text');
   if(isset($field->type) && in_array($field->type,array('list')) ){
-     $value=maybe_unserialize($value); 
+     //$value=maybe_unserialize($value); 
   }
   if(isset($field->type) && in_array($field->type,array('option','product')) ){
         $found=strpos($value,'|');
