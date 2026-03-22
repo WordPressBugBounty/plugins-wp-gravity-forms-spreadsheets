@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Connector for Gravity Forms and Google Sheets
 * Description: Integrates Gravity Forms with Google Sheets allowing form submissions to be automatically sent to your Google Sheets. 
-* Version: 1.2.7
+* Version: 1.2.8
 * Requires at least: 3.8
 * Author URI: https://www.crmperks.com
 * Plugin URI: https://www.crmperks.com/plugins/gravity-forms-plugins/gravity-forms-google-sheets-plugin/
@@ -24,7 +24,7 @@ class vxg_googlesheets {
   public  $crm_name = 'googlesheets';
   public  $id = 'vxg_googlesheets';
   public  $domain = 'vxg-gsheets';
-  public  $version = "1.2.7";
+  public  $version = "1.2.8";
   public  $update_id = '30021';
   public  $min_gravityforms_version = '1.3.9';
   public $type = 'vxg_googlesheets_pro';
@@ -1627,7 +1627,7 @@ if(!empty($data['note_val'])){
   }
 } 
 $no_filter=true;    
-         
+  $temp=apply_filters($this->id.'_post_data', $temp ,$entry);        
     if(isset($_REQUEST['bulk_action']) && $_REQUEST['bulk_action'] =="send_to_crm_bulk_force" && !empty($log_id)){
   $force_send=true;
   }
@@ -1732,6 +1732,8 @@ $this->send_error_email($info_data,$entry,$form);
   return array("msg"=>$notice,"class"=>$screen_msg_class);
   }
 public function process_tags($entry,$form,$value,$crm_field_id='',$custom=''){
+    $value = preg_replace( '/\{(?=\d+(?::|\}))/', '{:', $value ); // Prepend ":" to merge tags in the form {field_id:modifier} #46626
+$value = \GFCommon::replace_variables( $value, $form, $entry, false, false, true, 'text' );
   //starts with { and ends } , any char in brackets except {
   preg_match_all('/\{[^\{]+\}/',$value,$matches);
   if(!empty($matches[0])){

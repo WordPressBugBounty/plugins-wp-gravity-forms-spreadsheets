@@ -38,7 +38,7 @@ $self_dir=admin_url().'?'.$this->id.'_tab_action=get_code';
 <li><?php echo esc_html__('Copy "Client ID" and "Client Secret" then save changes','gravity-forms-googlesheets-crm'); ?></li>
  <li><?php esc_html_e('Go to "Library" and Select "Google Sheets API" then click "Enable" button, Similarly enable "Google drive" API','gravity-forms-googlesheets-crm'); ?></li>
  <li><?php esc_html_e('in google console , Go to APIs and Servies > Library and Select "Google Sheets API" then click "Enable" button, Similarly enable "Google drive" API','gravity-forms-googlesheets-crm'); ?></li>
- <li><?php esc_html_e('Go to "Audience" section, add google accounts which you want to connect.','gravity-forms-googlesheets-crm'); ?></li>
+ <li><?php esc_html_e('Go to "Audience" section, add google accounts which you want to connect."Publishing status" should be "in production", Testing apps token expire in 7 days','gravity-forms-googlesheets-crm'); ?></li>
 <li><?php echo esc_html__('Click "Login with Google Sheets" button, if you see "App is not verified" error then click "show advanced" link and "Go to App" link','gravity-forms-googlesheets-crm'); ?></li>
    </ol>
   
