@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Connector for Gravity Forms and Google Sheets
 * Description: Integrates Gravity Forms with Google Sheets allowing form submissions to be automatically sent to your Google Sheets. 
-* Version: 1.2.9
+* Version: 1.3.0
 * Requires at least: 3.8
 * Author URI: https://www.crmperks.com
 * Plugin URI: https://www.crmperks.com/plugins/gravity-forms-plugins/gravity-forms-google-sheets-plugin/
@@ -24,7 +24,7 @@ class vxg_googlesheets {
   public  $crm_name = 'googlesheets';
   public  $id = 'vxg_googlesheets';
   public  $domain = 'vxg-gsheets';
-  public  $version = "1.2.9";
+  public  $version = "1.3.0";
   public  $update_id = '30021';
   public  $min_gravityforms_version = '1.3.9';
   public $type = 'vxg_googlesheets_pro';
@@ -231,7 +231,7 @@ self::$plugin->instance();
   public  function gravity_forms_status() {
   
   $installed = 0;
-  if(!class_exists('RGForms')) {
+  if(!class_exists('GFForms')) {
   if(file_exists(WP_PLUGIN_DIR.'/gravityforms/gravityforms.php')) {
   $installed=2;   
   }
