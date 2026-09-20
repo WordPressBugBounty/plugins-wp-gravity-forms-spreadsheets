@@ -2,9 +2,9 @@
 Contributors: crmperks, sbazzi, asif876
 Tags: gravity forms, gravity forms Google Sheets, gravity forms to google docs, gravity forms google drive, gravity forms to google sheet
 Requires at least: 3.8
-Tested up to: 7.0
-Stable tag: 1.3.0
-Version: 1.3.0
+Tested up to: 7.1
+Stable tag: 1.3.1
+Version: 1.3.1
 Requires PHP: 5.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -92,6 +92,10 @@ Our team provides free support at <a href="https://www.crmperks.com/contact-us/"
 
 
 == Changelog ==
+
+= 1.3.1 =
+* updated "create google client info".
+* fixed "feed id validation" issue.
 
 = 1.3.0 =
 * fixed "gravity forms 3.0 compatibility" issue.

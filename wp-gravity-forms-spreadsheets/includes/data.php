@@ -391,6 +391,7 @@ return $results;
   return $results[0];   
   }     
   }
+  $id=intval($id);
   $results = $wpdb->get_results( 'SELECT * FROM '.$table.' where id='.$id.' limit 1',ARRAY_A );
   if(count($results) == 0){
   return array();

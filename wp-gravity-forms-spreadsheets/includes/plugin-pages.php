@@ -261,7 +261,7 @@ $this->push($entry,$form,'add_note');
   check_admin_referer('gforms_save_entry', 'gforms_save_entry');
     // For admin_init hook, get the entry ID from the URL
 
-  $entry_id = rgget('lid');
+  $entry_id = $this->post('entry_id');
   $form_id = rgget('id');
   
   // fetch alternative entry id: look for gf list details when using pagination
@@ -424,8 +424,8 @@ $count=$this->data->delete_log($log_ids);
     //wp_redirect($logs_link);
     // die();
   }
-  wp_enqueue_script('jquery-ui-datepicker' );
-     wp_enqueue_style('vx-datepicker');
+  
+     
   $times=array("today"=>"Today","yesterday"=>"Yesterday","this_week"=>"This Week","last_7"=>"Last 7 Days","last_30"=>"Last 30 Days","this_month"=>"This Month","last_month"=>"Last Month","custom"=>"Select Range"); 
   $data= $this->data->get_log(); $items=count($data['feeds']);
   $crm_order=$entry_order=$desc_order=$time_order="up"; 

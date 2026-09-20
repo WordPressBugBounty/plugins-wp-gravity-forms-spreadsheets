@@ -281,8 +281,8 @@ margin-left: 2px;
   ?>
   </select>
   <span style="<?php if(self::post('time') != "custom"){echo "display:none";} ?>" class="crm_custom_range"> 
-  <input type="text" name="start_date" placeholder="<?php esc_html_e('From Date','gravity-forms-googlesheets-crm') ?>" value="<?php if(isset($_REQUEST['start_date'])){echo esc_attr($this->post('start_date'));}?>" class="vxc_date crm_input_inline" style="width: 100px">
-  <input type="text" class="vxc_date crm_input_inline" value="<?php if(isset($_REQUEST['end_date'])){echo esc_attr($this->post('end_date'));}?>" placeholder="<?php esc_html_e('To Date','gravity-forms-googlesheets-crm') ?>" name="end_date"  style="width: 100px">
+  <input type="date" name="start_date" placeholder="<?php esc_html_e('From Date','gravity-forms-googlesheets-crm') ?>" value="<?php if(isset($_REQUEST['start_date'])){echo esc_attr($this->post('start_date'));}?>" class="vxc_date crm_input_inline" style="width: 100px">
+  <input type="date" class="vxc_date crm_input_inline" value="<?php if(isset($_REQUEST['end_date'])){echo esc_attr($this->post('end_date'));}?>" placeholder="<?php esc_html_e('To Date','gravity-forms-googlesheets-crm') ?>" name="end_date"  style="width: 100px">
   </span>
  
   <button type="submit" title="<?php esc_html_e('Search','gravity-forms-googlesheets-crm') ?>" name="search" class="button-secondary button crm_input_inline"><i class="fa fa-search"></i> <?php esc_html_e('Search','gravity-forms-googlesheets-crm') ?></button> 
@@ -526,11 +526,11 @@ if( $.inArray(action,["send_to_crm_bulk_force","send_to_crm_bulk"]) !=-1 && $(".
   },function(){
   $(this).find(".vx_hide_sort").hide();   
   })    
-  $(".vxc_date").datepicker({ changeMonth: true,
+  /* $(".vxc_date").datepicker({ changeMonth: true,
   changeYear: true,
   showButtonPanel: true,
   yearRange: "-100:+10",
-  dateFormat: 'dd-M-yy'  });
+  dateFormat: 'dd-M-yy'  }); */
   $(document).on("change",".crm_time_select",function(){
   var form=$(this).parents(".crm_form");
   var input=form.find(".crm_custom_range");

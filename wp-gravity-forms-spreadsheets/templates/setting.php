@@ -31,8 +31,8 @@ $self_dir=admin_url().'?'.$this->id.'_tab_action=get_code';
   </div></div>
   
     <ol>
-  <li><?php echo sprintf(__('Go to %sGoogle Developer Console %s , Create new Project or Select old project, %sView Screenshots %s','gravity-forms-googlesheets-crm'),'<a href="https://console.developers.google.com/" target="_blank">','</a>','<a href="https://www.crmperks.com/connect-wordpress-to-google/" target="_blank">','</a>'); ?></li>
-  <li><?php echo esc_html__('click "get started" button and enter name of Application (e.g CRM Perks), support email and select "External" in Audience section.','gravity-forms-googlesheets-crm'); ?>
+  <li><?php echo sprintf(__('Go to %sGoogle Developer Console %s , Create new Project or Select old project, %sView Screenshots %s','gravity-forms-googlesheets-crm'),'<a href="https://console.cloud.google.com/" target="_blank">','</a>','<a href="https://www.crmperks.com/connect-wordpress-to-google/" target="_blank">','</a>'); ?></li>
+  <li><?php echo esc_html__('click "get started" button (OR go to Branding tab) and enter name of Application (e.g CRM Perks), support email and select "External" in Audience section.','gravity-forms-googlesheets-crm'); ?>
   <li><?php echo sprintf(__('Go to "Clients" tab and create new Client, Select Application Type as "Web application", Enter name(e.g CRM Perks APP) , Enter %s or %s in "Authorized redirect URIs" field then click "Create" button','gravity-forms-googlesheets-crm'),'<code>https://www.crmperks.com/google_auth/</code>','<code>'.$self_dir.'</code>'); ?>
   </li>
 <li><?php echo esc_html__('Copy "Client ID" and "Client Secret" then save changes','gravity-forms-googlesheets-crm'); ?></li>

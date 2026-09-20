@@ -15,7 +15,7 @@ add_action( 'add_section_vxg_googlesheets', array($this,'tab'),10);
 add_action( 'add_section_mapping_vxg_googlesheets', array($this,'upgrade_notice'),10);
 add_filter( 'plugin_row_meta', array( $this , 'pro_link' ), 10, 2 );
 
-add_action( 'after_plugin_row_'.$this->slug, array( $this, 'plugin_msgs' ) );
+//add_action( 'after_plugin_row_'.$this->slug, array( $this, 'plugin_msgs' ) );
 add_action( 'wp_ajax_vxg_google_review_dismiss', array( $this, 'review_dismiss' ) );
 
 if(isset($_GET['page']) && $_GET['page'] == 'gf_edit_forms' && isset($_GET['subview']) && $_GET['subview'] == 'vxg_googlesheets' ){

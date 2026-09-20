@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Connector for Gravity Forms and Google Sheets
 * Description: Integrates Gravity Forms with Google Sheets allowing form submissions to be automatically sent to your Google Sheets. 
-* Version: 1.3.0
+* Version: 1.3.1
 * Requires at least: 3.8
 * Author URI: https://www.crmperks.com
 * Plugin URI: https://www.crmperks.com/plugins/gravity-forms-plugins/gravity-forms-google-sheets-plugin/
@@ -24,7 +24,7 @@ class vxg_googlesheets {
   public  $crm_name = 'googlesheets';
   public  $id = 'vxg_googlesheets';
   public  $domain = 'vxg-gsheets';
-  public  $version = "1.3.0";
+  public  $version = "1.3.1";
   public  $update_id = '30021';
   public  $min_gravityforms_version = '1.3.9';
   public $type = 'vxg_googlesheets_pro';
@@ -311,7 +311,7 @@ self::$plugin->instance();
   
   // For admin_init hook, get the entry ID from the URL
   if(empty($entry_id)) {
-  $entry_id = rgget('lid');
+  $entry_id = $this->post('entry_id');
   $form_id = rgget('id');
   
   // fetch alternative entry id: look for gf list details when using pagination
@@ -689,8 +689,8 @@ return $result;
   * @param mixed $page
   */
   public  function is_gravity_page($page = array()){
-  if(!class_exists('RGForms')) { return false; }
-  $current_page = trim(strtolower(RGForms::get("page")));
+  if(!class_exists('GFForms')) { return false; }
+  $current_page = trim(strtolower(GFForms::get("page")));
   if(empty($page)) {
   $gf_pages = array("gf_edit_forms","gf_new_form","gf_entries","gf_settings","gf_export","gf_help");
   } else {
